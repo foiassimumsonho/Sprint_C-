@@ -23,7 +23,7 @@ try
         Console.WriteLine($"\nMENU PRINCIPAL (Cliente: {meuPedido.NomeCliente})");
         Console.WriteLine("1. Adicionar Bolo ");
         Console.WriteLine("2. Adicionar Bebida");
-        Console.WriteLine("3. Revisar Pedido");              // ← texto atualizado
+        Console.WriteLine("3. Revisar Pedido");             
         Console.WriteLine("4. Cancelar e Sair");
         Console.Write("Escolha uma opção: ");
         Console.ResetColor();
@@ -37,7 +37,6 @@ try
                 AdicionarBebidaMenu(meuPedido);
                 break;
             case "3":
-                // ── ATUALIZADO: abre revisão antes de confirmar ──
                 bool pedidoConfirmado = RevisarPedido(meuPedido);
                 if (pedidoConfirmado) menuAtivo = false;
                 break;
@@ -59,7 +58,6 @@ catch (Exception ex)
     Console.WriteLine($"Erro crítico: {ex.Message}");
 }
 
-// ── NOVO: tela de revisão — confirmar, remover item ou voltar ao menu ──
 bool RevisarPedido(Pedido pedido)
 {
     while (true)
@@ -135,7 +133,6 @@ void RemoverItemMenu(Pedido pedido)
     }
 }
 
-// ── NOVO: tela de escolha de pagamento ──
 void EscolherPagamento(double total)
 {
     while (true)
